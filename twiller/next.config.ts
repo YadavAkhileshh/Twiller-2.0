@@ -1,6 +1,4 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+const nextConfig: any = {
   env: {
     BACKEND_URL: process.env.BACKEND_URL,
   },
