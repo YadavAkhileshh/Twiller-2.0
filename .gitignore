@@ -1,0 +1,19 @@
+# env files
+.env
+.env.local
+.env.development
+.env.production
+backend/.env
+twiller/.env
+twiller/.env.local
+
+# dependencies
+node_modules/
+twiller/node_modules/
+backend/node_modules/
+
+# next.js build
+twiller/.next/
+
+# os
+.DS_Store
