@@ -33,7 +33,7 @@ export default function AudioTweetComposer({ onPostSuccess }: { onPostSuccess?: 
         if (res.error) {
             alert(res.message || 'couldnt send OTP');
         } else {
-            alert('OTP sent! Check your email (or server console)');
+            alert('OTP sent! Check your email');
         }
     };
 
