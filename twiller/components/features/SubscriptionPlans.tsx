@@ -81,7 +81,7 @@ export default function SubscriptionPlans({ userId, email }: { userId: string, e
 
     return (
         <div style={{ background: '#111', border: '1px solid #333', borderRadius: '8px', padding: '20px' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: '10px', marginBottom: '20px' }}>
                 <div>
                     <h3 style={{ fontSize: '17px', fontWeight: 'bold', margin: 0 }}>Subscription Plans</h3>
                     <p style={{ color: '#777', fontSize: '12px', margin: '4px 0 0' }}>Choose a plan for more tweets per day</p>
@@ -91,7 +91,7 @@ export default function SubscriptionPlans({ userId, email }: { userId: string, e
                 </span>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '12px' }}>
                 {plans.map(plan => (
                     <div key={plan.id} style={{ border: '1px solid #333', borderRadius: '8px', padding: '16px', display: 'flex', flexDirection: 'column' }}>
                         <h4 style={{ fontSize: '14px', fontWeight: 'bold', marginBottom: '4px' }}>{plan.name}</h4>
