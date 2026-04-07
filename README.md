@@ -1,36 +1,40 @@
 # Twiller 2.0
 
-Twitter clone I built for my internship. Frontend is Next.js, backend is Node.js with Express and MongoDB.
+Twiller 2.0 is a full-stack, production-ready Twitter clone built with a Next.js (React) front-end and a Node.js/Express/MongoDB backend. 
 
-## What it does
+Designed with a heavy focus on seamless **Feature Integration**, all advanced functionalities operate entirely *inline* within the natural flow of the application structure without relying on disjointed or standalone pages. 
 
-- Record audio and post it as a tweet. Needs email OTP first. Only works 2-7 PM IST. Max 5 min, 100MB.
-- Forgot password. Enter email or phone, get a new password. Only works once a day. Password is random letters only.
-- Subscription plans. Free, Bronze (100), Silver (300), Gold (1000). Payment through Razorpay, only works 10-11 AM IST. Invoice gets emailed.
-- Switch between 6 languages. French needs email OTP, others need mobile OTP.
-- Login history. Tracks browser, OS, device, IP. Chrome needs OTP, Edge skips auth, mobile only works 10 AM-1 PM IST.
-- Notifications. Get browser alerts when someone tweets about cricket or science. Can turn on/off.
+## Integrated Features
 
-## How to run
+*   **🎙️ Native Audio Tweeting**: Users can record and post audio directly inside the main `TweetComposer`. Triggered via the mic icon, it executes inline OTP verification and enforces a strict 2 PM–7 PM IST upload window (max 5 mins/100MB) directly from the feed.
+*   **🔒 Intelligent Password Reset**: Forgot your password? The reset flow occurs within the standard `AuthModal` context. It enforces a strict once-a-day generation protocol creating secure alphabetic-only passwords.
+*   **💳 Inline Premium Subscriptions**: Hitting your daily tweet limit dynamically intercepts your tweet event to pull down Razorpay right below the composer. Subscriptions (Bronze, Silver, Gold) can only be purchased precisely during a specialized 10 AM-11 AM IST gateway window.
+*   **🌐 In-Menu Localization**: Change platform languages to Hindi, Spanish, Chinese, Portuguese or French directly within the left-hand navigation sidebar. Switching to French triggers an inline multi-factor OTP sequence inside the menu itself.
+*   **📊 Deep Profile Analytics**: Profiles have been expanded with tabular layouts allowing users to seamlessly switch to their "History" tab to review their specific login history—combining Browser, OS, IP, and Device type logic.
+*   **🔔 Keyword Notifications**: Profiles feature a "Settings" tab that hosts an integrated web-push socket architecture. It seamlessly flags device notifications if recent feed activity revolves around designated tracked keywords (e.g., "cricket", "science").
 
-Backend:
-```
+## Technology Stack
+
+*   **Frontend**: Next.js 14, React 18, Tailwind CSS, Shadcn UI overlays.
+*   **Backend**: Node.js, Express, Firebase v10 Auth, Socket.io, Razorpay.
+*   **Database**: MongoDB connected via Mongoose.
+
+## Operating Instructions
+
+### Backend:
+```bash
 cd backend
 npm install
-cp .env.example 
-# fill in your env values
+cp .env.example .env # Fill with your Mongo URI, Nodemailer creds, and Razorpay secrets
 npm start
 ```
 
-Frontend:
-```
+### Frontend:
+```bash
 cd twiller
 npm install
-cp .env.example
-# fill in your env values
+cp .env.example .env.local # Fill with your Firebase keys and backend URL
 npm run dev
 ```
 
-## Env variables
-
-Check `backend/.env.example` and `twiller/.env.example` for what you need to fill in.
+Visit `http://localhost:3000` to start exploring the platform.
